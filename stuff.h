@@ -40,6 +40,6 @@ void free_lattice();
 double beta, prob;
 double *x_values, *y_values;
 double mag;
-double magnetization();
+void magnetization();
 void sw_iterate();
 

@@ -41,6 +41,7 @@ void init(int argc, char** argv) {
 	}
 	x_values = malloc(q * sizeof(double));
 	y_values = malloc(q * sizeof(double));
+	int i;
 	for(i=0; i < q; ++i) {
 		x_values[i] = sin( (2 * M_PI * i ) / (double) q);
 		y_values[i] = cos( (2 * M_PI * i ) / (double) q);

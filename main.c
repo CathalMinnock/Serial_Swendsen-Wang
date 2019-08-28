@@ -44,11 +44,11 @@ void init() {
 		x_values[i] = sin( (2 * M_PI * i ) / (double) q);
 		y_values[i] = cos( (2 * M_PI * i ) / (double) q);
 	}
+	FILE *fp1 = fopen(filename, "w");
 }
 int main()
 {	
 	int i, j;
-	FILE *fp1;
 	init_lattice();
 	randomize_lattice();
 	for(i = 0; i < 10 * steps_between_samples; ++i)

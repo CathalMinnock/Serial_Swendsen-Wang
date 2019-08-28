@@ -6,11 +6,11 @@
 int x_size, y_size, z_size;
 int q;
 char *filename;
-int samples, steps_between samples;
+int samples, steps_between_samples;
 
 /* LINKED LIST STUFF */
 typedef struct list_node {
-	char spin;
+	unsigned char spin;
 	int label;
 	struct list_node *next;
 } list_node;
@@ -21,7 +21,7 @@ void free_list();
 
 /* LATTICE STUFF */
 typedef struct point {
-	char spin;
+	unsigned char spin;
 	int label;
 	bool bond_x;
 	bool bond_y;
@@ -41,6 +41,5 @@ double beta, prob;
 double *x_values, *y_values;
 double mag;
 double magnetization();
-double magnetization_max();
-void sw_iterate(double prob);
+void sw_iterate();
 

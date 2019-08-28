@@ -1,6 +1,6 @@
 #include "stuff.h"
 
-void sw_iterate(double prob) {
+void sw_iterate() {
 	reset_lattice();
 	int i,j,k;
 	/* 

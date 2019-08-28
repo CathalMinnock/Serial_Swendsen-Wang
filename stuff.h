@@ -42,4 +42,5 @@ double *x_values, *y_values;
 double mag;
 void magnetization();
 void sw_iterate();
+FILE *fp;
 

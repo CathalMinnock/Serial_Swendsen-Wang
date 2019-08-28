@@ -1,7 +1,8 @@
 #include "stuff.h"
 #include <time.h>
+#include <unistd.h>
 
-void init() {
+void init(int argc, char** argv) {
 	srand(time(NULL));
 	int option_index = 0;
 	x_size = 8; y_size = 8; z_size = 8; 
@@ -44,10 +45,12 @@ void init() {
 		x_values[i] = sin( (2 * M_PI * i ) / (double) q);
 		y_values[i] = cos( (2 * M_PI * i ) / (double) q);
 	}
-	FILE *fp1 = fopen(filename, "w");
+	fp = fopen(filename, "w");
 }
-int main()
+int main(int argc, char** argv)
 {	
+	init(argc, argv);
+	
 	int i, j;
 	init_lattice();
 	randomize_lattice();
@@ -55,11 +58,11 @@ int main()
 		sw_iterate(prob);
 	for(i = 0; i < samples; ++i) {
 		for(j = 0; j < steps_between_samples; ++j)
-			sw_iterate(prob);
-		mag = magnetization();
-		fprintf(fp1, "%lf\n", mag);
+			sw_iterate();
+		magnetization();
+		fprintf(fp, "%lf\n", mag);
 	}
-	fclose(fp1);
+	fclose(fp);
 	free_lattice();
 	return 0;
 }
